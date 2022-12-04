@@ -1,8 +1,14 @@
+// @ts-nocheck
 export { dragging }
-const wrapper = document.querySelector(".wrapper")!;
+const display = document.querySelector(".display")!;
 
 const dragging = (e) => {
-  /* const left = e.clientX;
-  wrapper.style.left = left;
-  console.log(left) */
+  /* const x = e.clientX;
+  const y = e.clientY;
+  display.addEventListener("mousemove", () => {
+    console.log(x)
+    display.style.left = x;
+  }) */
+  
+  
 }
