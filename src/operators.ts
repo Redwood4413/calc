@@ -1,5 +1,4 @@
-// @ts-nocheck
-export { selectOperator, isSelected };
+export { operator, isSelected, selectOperator };
 import { appState } from './typingNumbers'
 
 const operatorQuery = document.querySelector(".operator")!;
@@ -9,11 +8,14 @@ let operator: string = "";
 const selectOperator = (e:MouseEvent) => {
   if(!e.target) return;
 
+  navigator.vibrate(40);
+  
   const clickedOperator = (e.target as HTMLInputElement).value;
 
   operator = clickedOperator;
   if(!isSelected) appState.tempString = '';
-  isSelected = true;
   
+  isSelected = true;
+
   operatorQuery.innerHTML = clickedOperator;
 }

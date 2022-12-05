@@ -66,7 +66,7 @@ h1 {
 @media only screen and (hover: none) and (pointer: coarse) {
   .wrapper {
     width: 100vw;
-    height: 80vh;
+    height: 91vh;
     margin-bottom: 8.5vh;
   }
 
@@ -76,7 +76,7 @@ h1 {
 }
 
 .wrapper {
-  border-radius: 5px;
+  border-radius: 15px 15px 0px 15px;
   padding: 0.8vh;
   background: linear-gradient(45deg, rgba(87, 87, 87, 0.8), rgba(20, 20, 20, 0.8));
   -webkit-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
@@ -89,9 +89,9 @@ h1 {
   grid-template-rows: 30% 70%;
   resize: both;
   overflow: auto;
-  left: 25vh;
+  /* left: 25vh;
   top: 25vh;
-  position: absolute;
+  position: absolute; */
 }
 
 .display {
@@ -99,8 +99,6 @@ h1 {
   border-radius: 5px;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   text-align: right;
   margin: 4px;
   padding: 5px;
@@ -131,6 +129,7 @@ h1 {
 .result {
   grid-area: 3 / 2 / 4 / 3;
   border-top: 2px solid white;
+  visibility: hidden;
 }
 
 .display:active {
@@ -141,18 +140,28 @@ h1 {
   display: grid;
   grid-template-columns: 76.5% 23.5%;
   grid-template-rows: 33.2% 66.8%;
-  gap: 0.5vh;
-  padding: 0.25vh;
   overflow: hidden;
   border-radius: 10px;
+  gap: 3px;
+  margin: 4px;
+}
+
+.buttons input:hover,
+.buttons button:hover {
+  filter: brightness(140%);
 }
 
 .numbers,
-.top,
+.top {
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .right {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5vh;
+  gap: 3px;
+  grid-template-rows: repeat(6, 1fr);
 }
 
 .numbers {
@@ -165,12 +174,12 @@ h1 {
 }
 
 .numbers input:active {
-  background: #4e4e51;
+  background: #59595e;
 }
 
 .right input:active,
 .top input:active {
-  background: #3b3b3e;
+  background: #2f2f32;
 }
 
 .top {
@@ -190,6 +199,10 @@ h1 {
 
 .right input:last-child {
   background: #d18727;
+}
+
+.right input:last-child:active {
+  background: #8c540b;
 }
 
 input {

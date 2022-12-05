@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 export {}
 
 const title = document.querySelector("title") as HTMLTitleElement;
