@@ -1,18 +1,12 @@
 import { displaying } from "./displaying";
-export { typingNumbers, appState, negation };
+import { appState } from './main';
 
+export { typingNumbers, negation };
 const resultQuery = document.querySelector(".result") as HTMLElement;
 const firstStringQuery = document.querySelector(".first")!;
 const secondStringQuery = document.querySelector(".second")!;
 
-const appState = {
-  tempString: '',
-  firstString: '0',
-  secondString: '',
-  result: Number,
-}
 
-firstStringQuery.innerHTML = `${appState.firstString}`
 
 const typingNumbers = (e:MouseEvent) => {
   navigator.vibrate(40);
@@ -27,7 +21,7 @@ const typingNumbers = (e:MouseEvent) => {
     appState.tempString = '';
     secondStringQuery.innerHTML = appState.tempString;
     firstStringQuery.innerHTML = appState.firstString;
-    appState.result = 0;
+    appState.result = '';
   }
   //prevent typing multiple "0" at the beginning of a string
   if(appState.tempString.charAt(0) == "0" 
@@ -48,8 +42,10 @@ const typingNumbers = (e:MouseEvent) => {
 const negation = () => {
   navigator.vibrate(40);
 
+  if(appState.result) return;
   if(!appState.tempString) return;
   //if(!result) return;
+  console.log(typeof appState.result)
 
   if(appState.tempString.includes('-')){
     appState.tempString = appState.tempString.slice(1);

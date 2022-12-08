@@ -1,21 +1,23 @@
-export { operator, isSelected, selectOperator };
-import { appState } from './typingNumbers'
+export { selectOperator };
+import { appState } from './main';
 
 const operatorQuery = document.querySelector(".operator")!;
-let isSelected: boolean = false;
-let operator: string = "";
 
 const selectOperator = (e:MouseEvent) => {
-  if(!e.target) return;
-
   navigator.vibrate(40);
+  if(!e.target) return;
+  
+  //TODO: clearing result and 2nd string after operator click
+  if(appState.result) {
+    return;
+  }
   
   const clickedOperator = (e.target as HTMLInputElement).value;
 
-  operator = clickedOperator;
-  if(!isSelected) appState.tempString = '';
-  
-  isSelected = true;
+  appState.operator = clickedOperator;
 
+  if(!appState.isSelected) appState.tempString = '';
+  
+  appState.isSelected = true;
   operatorQuery.innerHTML = clickedOperator;
 }

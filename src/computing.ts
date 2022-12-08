@@ -1,15 +1,15 @@
+
 export { compute };
-import { appState } from './typingNumbers';
-import { operator } from './operators';
+import { appState } from './main';
 
 const resultQuery = document.querySelector(".result") as HTMLElement;
 const firstStringQuery = document.querySelector(".first")!;
 
-let firstNum: number, secondNum: number;
+let resultNum: number;
 
 const compute = () => {
   navigator.vibrate(40);
-  
+  let firstNum: number, secondNum: number;
   if(!appState.firstString || !appState.secondString) return;
 
   /* //assigning to result with one string variable empty
@@ -24,15 +24,15 @@ const compute = () => {
   firstNum = Number(appState.firstString);
   secondNum = Number(appState.secondString);
 
-  switch (operator) {
+  switch (appState.operator) {
     case "+":
-      appState.result = firstNum + secondNum;
+      resultNum = firstNum + secondNum;
       break;
     case "-":
-      appState.result = firstNum - secondNum;
+      resultNum = firstNum - secondNum;
       break;
     case "*":
-      appState.result = firstNum * secondNum;
+      resultNum = firstNum * secondNum;
       break;
     case "/":
       if(secondNum === 0) {
@@ -40,12 +40,10 @@ const compute = () => {
         resultQuery.style.visibility = `visible`;
         return;
       };
-      appState.result = firstNum / secondNum;
-      break;
-    default:
+      resultNum = firstNum / secondNum;
       break;
   }
-  
+  appState.result = `${resultNum}`
   resultQuery.style.visibility = `visible`;
   resultQuery.innerHTML = `${appState.result}`;
 
