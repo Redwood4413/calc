@@ -1,4 +1,3 @@
-export { backspace };
 import { appState } from "./main";
 import { displaying } from "./displaying";
 
@@ -27,3 +26,5 @@ const backspace = () => {
   appState.tempString = appState.tempString.slice(0, -1);
   displaying();
 }
+
+export { backspace };

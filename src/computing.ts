@@ -1,4 +1,3 @@
-export { compute };
 import { appState } from './main';
 
 const resultQuery = document.querySelector(".result") as HTMLElement;
@@ -46,3 +45,5 @@ const compute = () => {
   resultQuery.style.visibility = `visible`;
   resultQuery.innerHTML = `${appState.result}`;
 }
+
+export { compute };

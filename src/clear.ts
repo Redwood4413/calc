@@ -1,6 +1,5 @@
 import { appState } from "./main";
 import { displaying } from "./displaying";
-export { clearEntry, clearAll };
 
 const clearEntry = () => {
   if(appState.result) {
@@ -31,3 +30,5 @@ const clearAll = () => {
   const operatorQuery = document.querySelector(".operator")!;
   operatorQuery.innerHTML = appState.operator;
 }
+
+export { clearEntry, clearAll };

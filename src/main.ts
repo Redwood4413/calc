@@ -1,5 +1,3 @@
-// @ts-nocheck
-export { appState };
 import './style.css';
 import './version';
 import { consolidateInputs, negation } from './typingNumbers';
@@ -81,3 +79,5 @@ display.addEventListener("mousedown", () => {
 document.addEventListener("mouseup", () => {
   wrapper.removeEventListener("mousemove", dragging);
 });
+
+export { appState };

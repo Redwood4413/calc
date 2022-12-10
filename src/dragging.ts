@@ -1,4 +1,3 @@
-export { dragging }
 const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
 
 const dragging = ( {movementX, movementY}: MouseEvent ) => {
@@ -9,3 +8,5 @@ const dragging = ( {movementX, movementY}: MouseEvent ) => {
   wrapper.style.left = `${left + movementX}px`
   wrapper.style.top = `${top + movementY}px`;
 }
+
+export { dragging }

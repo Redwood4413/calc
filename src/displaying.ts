@@ -1,7 +1,5 @@
 import { appState } from './main';
 
-export { displaying };
-
 const firstStringQuery = document.querySelector(".first")!;
 const secondStringQuery = document.querySelector(".second")!;
 
@@ -16,3 +14,5 @@ const displaying = () => {
     return;
   }
 }
+
+export { displaying };
