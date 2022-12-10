@@ -7,10 +7,10 @@ const selectOperator = (e:MouseEvent) => {
   navigator.vibrate(40);
   if(!e.target) return;
   
-  //TODO: clearing result and 2nd string after operator click
+  /* //TODO: clearing result and 2nd string after operator click
   if(appState.result) {
     return;
-  }
+  } */
   
   const clickedOperator = (e.target as HTMLInputElement).value;
 

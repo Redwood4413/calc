@@ -2,7 +2,7 @@
   "name": "calc",
   "homepage": "https://redwood4413.github.io/calc",
   "private": true,
-  "version": "0.0.6",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

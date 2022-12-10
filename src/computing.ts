@@ -1,4 +1,3 @@
-
 export { compute };
 import { appState } from './main';
 
@@ -46,5 +45,4 @@ const compute = () => {
   appState.result = `${resultNum}`
   resultQuery.style.visibility = `visible`;
   resultQuery.innerHTML = `${appState.result}`;
-
 }

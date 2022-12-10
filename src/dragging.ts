@@ -1,14 +1,11 @@
-// @ts-nocheck
 export { dragging }
-const display = document.querySelector(".display")!;
+const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
 
-const dragging = (e) => {
-  /* const x = e.clientX;
-  const y = e.clientY;
-  display.addEventListener("mousemove", () => {
-    console.log(x)
-    display.style.left = x;
-  }) */
-  
-  
+const dragging = ( {movementX, movementY}: MouseEvent ) => {
+  const getStyle = window.getComputedStyle(wrapper);
+  const left = parseInt(getStyle.left);
+  const top = parseInt(getStyle.top);
+
+  wrapper.style.left = `${left + movementX}px`
+  wrapper.style.top = `${top + movementY}px`;
 }

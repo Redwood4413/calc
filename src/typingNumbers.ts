@@ -1,19 +1,27 @@
+// @ts-nocheck
 import { displaying } from "./displaying";
 import { appState } from './main';
 
-export { typingNumbers, negation };
+export { consolidateInputs, typingNumbers, negation };
 const resultQuery = document.querySelector(".result") as HTMLElement;
 const firstStringQuery = document.querySelector(".first")!;
 const secondStringQuery = document.querySelector(".second")!;
 
+let clickedValue: string;
 
+const consolidateInputs = (event:MouseEvent | KeyboardEvent) => {
+  if(!event) return;
+  
+  if(event.key as HTMLInputElement) clickedValue = event.key;
+  if((event.target as HTMLInputElement).value) {
+    clickedValue = (event.target as HTMLInputElement).value
+  }
+  typingNumbers();
+}
 
-const typingNumbers = (e:MouseEvent) => {
+const typingNumbers = () => {
   navigator.vibrate(40);
-
-  if(!e.target) return;
-  const clickedValue = (e.target as HTMLInputElement).value;
-
+  
   //typing with existing result
   if(appState.result) {
     resultQuery.style.visibility = "hidden";
@@ -44,13 +52,12 @@ const negation = () => {
 
   if(appState.result) return;
   if(!appState.tempString) return;
-  //if(!result) return;
-  console.log(typeof appState.result)
 
-  if(appState.tempString.includes('-')){
-    appState.tempString = appState.tempString.slice(1);
-  }else{
-    appState.tempString = `-${appState.tempString}`
-  }
+  let localNum: number;
+
+  localNum = Number(appState.tempString);
+  localNum *= -1;
+  appState.tempString = `${localNum}`;
+
   displaying();
 }
