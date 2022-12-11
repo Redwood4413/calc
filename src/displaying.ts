@@ -1,18 +1,16 @@
-import { appState } from './main';
+import appState from './appstate';
 
-const firstStringQuery = document.querySelector(".first")!;
-const secondStringQuery = document.querySelector(".second")!;
+const firstStringQuery = document.querySelector('.first')!;
+const secondStringQuery = document.querySelector('.second')!;
 
 const displaying = () => {
-  if(!appState.isSelected) {
+  if (!appState.isSelected) {
     appState.firstString = appState.tempString;
     firstStringQuery.innerHTML = appState.firstString;
-    return;
-  }else{
+  } else {
     appState.secondString = appState.tempString;
     secondStringQuery.innerHTML = appState.secondString;
-    return;
   }
-}
+};
 
-export { displaying };
+export default displaying;

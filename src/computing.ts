@@ -1,49 +1,51 @@
-import { appState } from './main';
+import appState from './appstate';
 
-const resultQuery = document.querySelector(".result") as HTMLElement;
-const firstStringQuery = document.querySelector(".first")!;
+const resultQuery = document.querySelector('.result') as HTMLElement;
+const firstStringQuery = document.querySelector('.first')!;
 
 let resultNum: number;
 
 const compute = () => {
   navigator.vibrate(40);
-  let firstNum: number, secondNum: number;
-  if(!appState.firstString || !appState.secondString) return;
+  if (!appState.firstString || !appState.secondString) return;
 
   /* //assigning to result with one string variable empty
   if(appState.firstString && !appState.secondString) result = firstNum;
   if(!appState.firstString && appState.secondString) result = secondNum; */
 
-  if(appState.result){ 
+  if (appState.result) {
     appState.firstString = `${appState.result}`;
     firstStringQuery.innerHTML = `${appState.result}`;
   }
-  
-  firstNum = Number(appState.firstString);
-  secondNum = Number(appState.secondString);
+
+  const firstNum: number = Number(appState.firstString);
+  const secondNum: number = Number(appState.secondString);
 
   switch (appState.operator) {
-    case "+":
+    case '+':
       resultNum = firstNum + secondNum;
       break;
-    case "-":
+    case '-':
       resultNum = firstNum - secondNum;
       break;
-    case "*":
+    case '*':
       resultNum = firstNum * secondNum;
       break;
-    case "/":
-      if(secondNum === 0) {
-        resultQuery.innerHTML = "Dzielisz przez 0, dzbanie";
-        resultQuery.style.visibility = `visible`;
+    case '/':
+      if (secondNum === 0) {
+        resultQuery.innerHTML = 'Dzielisz przez 0, dzbanie';
+        resultQuery.style.visibility = 'visible';
         return;
-      };
+      }
       resultNum = firstNum / secondNum;
       break;
+    default:
+      break;
   }
-  appState.result = `${resultNum}`
-  resultQuery.style.visibility = `visible`;
-  resultQuery.innerHTML = `${appState.result}`;
-}
 
-export { compute };
+  appState.result = `${resultNum}`;
+  resultQuery.style.visibility = 'visible';
+  resultQuery.innerHTML = `${appState.result}`;
+};
+
+export default compute;
