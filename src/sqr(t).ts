@@ -1,11 +1,11 @@
-import { appState } from "./main";
-import { displaying } from "./displaying";
+import appState from './appstate';
+import displaying from './displaying';
 
 const square = () => {
   navigator.vibrate(40);
-  if(!appState.tempString) return;
-  if(appState.result) return;
-  
+  if (!appState.tempString) return;
+  if (appState.result) return;
+
   let localNum: number;
 
   localNum = Number(appState.tempString);
@@ -13,11 +13,11 @@ const square = () => {
   appState.tempString = `${localNum}`;
 
   displaying();
-}
+};
 const squareRoot = () => {
   navigator.vibrate(40);
-  if(!appState.tempString) return;
-  if(appState.result) return;
+  if (!appState.tempString) return;
+  if (appState.result) return;
 
   let localNum: number;
 
@@ -26,6 +26,6 @@ const squareRoot = () => {
   appState.tempString = `${localNum}`;
 
   displaying();
-}
+};
 
 export { square, squareRoot };

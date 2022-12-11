@@ -1,11 +1,11 @@
-import { displaying } from './displaying';
-import { appState } from './main';
+import displaying from './displaying';
+import appState from './appstate';
 
 const inversion = () => {
   navigator.vibrate(40);
 
-  if(appState.result) return;
-  if(!appState.tempString) return;
+  if (appState.result) return;
+  if (!appState.tempString) return;
 
   let localNum: number;
 
@@ -14,6 +14,6 @@ const inversion = () => {
   appState.tempString = `${localNum}`;
 
   displaying();
-}
+};
 
-export { inversion };
+export default inversion;
